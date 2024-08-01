@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter/timerdemo/stopwatch.dart';
+import 'package:learn_flutter/ui/timerdemo/stopwatch.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

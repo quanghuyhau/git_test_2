@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:learn_flutter/learn/login/login.dart';
-import 'package:learn_flutter/learn/signup/signup.dart';
+import 'package:learn_flutter/ui/learn/login_bloc/login_screen.dart';
+import 'package:learn_flutter/ui/learn/signup/signup.dart';
 
 class ScreenSaver extends StatefulWidget {
   const ScreenSaver({super.key});

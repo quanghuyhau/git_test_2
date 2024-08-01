@@ -1,4 +1,4 @@
-import 'package:learn_flutter/dio_retrofit/models/coin_model.dart';
+import 'package:learn_flutter/dio_retrofit/coin/models/coin_model.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
 

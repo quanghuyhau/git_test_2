@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
-import 'package:learn_flutter/dio_retrofit/models/coin_model.dart';
-import 'package:learn_flutter/dio_retrofit/service/coin_service.dart';
+import 'package:learn_flutter/dio_retrofit/coin/models/coin_model.dart';
+import 'package:learn_flutter/dio_retrofit/coin/service/coin_service.dart';
 
 class CoinListScreen extends StatefulWidget {
   @override

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter/learn/login/login.dart';
-import 'package:learn_flutter/setting/ui/home_movie_screen.dart';
 import 'package:readmore/readmore.dart';
 
 class CustomScrollviewScreen extends StatefulWidget {

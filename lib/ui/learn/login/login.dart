@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter/futuredemo/splash_screen.dart';
-import 'package:learn_flutter/learn/home/homescreen.dart';
-import 'package:learn_flutter/learn/authen/forgot_password.dart';
-import 'package:learn_flutter/learn/screensaver/screensaver.dart';
+import 'package:learn_flutter/ui/learn/authen/forgot_password.dart';
+import 'package:learn_flutter/ui/learn/home/homescreen.dart';
+import 'package:learn_flutter/ui/learn/screensaver/screensaver.dart';
 import '../signup/signup.dart';
 
 class LoginScreen extends StatefulWidget {

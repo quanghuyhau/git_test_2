@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter/learn/login/login.dart';
-import 'package:learn_flutter/learn/authen/otp.dart';
+import 'package:learn_flutter/ui/learn/authen/otp.dart';
+import 'package:learn_flutter/ui/learn/login_bloc/login_screen.dart';
 
 class ForgotPassScreen extends StatefulWidget {
   const ForgotPassScreen({super.key});

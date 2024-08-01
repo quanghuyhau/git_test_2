@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:learn_flutter/learn/authen/forgot_password.dart';
-import 'package:learn_flutter/learn/login/login.dart';
+import 'package:learn_flutter/ui/learn/authen/forgot_password.dart';
+import 'package:learn_flutter/ui/learn/login/login.dart';
 import 'package:pinput/pinput.dart';
 
 class OtpScreen extends StatefulWidget {

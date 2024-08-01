@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter/learn/login/login.dart';
+import 'package:learn_flutter/ui/learn/login/login.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
