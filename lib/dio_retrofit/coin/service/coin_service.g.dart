@@ -35,7 +35,7 @@ class _CoinService implements CoinService {
     )
             .compose(
               _dio.options,
-              'coins',
+              '/coins',
               queryParameters: queryParameters,
               data: _data,
             )

@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:learn_flutter/ui/learn/login_bloc/login_screen.dart';
-import 'package:learn_flutter/ui/learn/signup/signup.dart';
+import 'package:learn_flutter/dio_retrofit/atomi/authentication/login/ui/login_screen.dart';
+import 'package:learn_flutter/dio_retrofit/atomi/authentication/signup/ui/signup_screen.dart';
+import 'package:logger/logger.dart';
 
 class ScreenSaver extends StatefulWidget {
   const ScreenSaver({super.key});
@@ -12,6 +13,7 @@ class ScreenSaver extends StatefulWidget {
 }
 
 class _ScreenSaverState extends State<ScreenSaver> {
+  final Logger _logger = Logger();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,8 +60,14 @@ class _ScreenSaverState extends State<ScreenSaver> {
                                 minimumSize: Size(150, 60),
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10))),
-                            onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+                            onPressed: () async {
+                              final result = await Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) =>  LoginScreen()),
+                              );
+                              if (result != null) {
+                                _logger.w(result);
+                              }
                             },
                             child: Text(
                               "Login",
@@ -73,7 +81,7 @@ class _ScreenSaverState extends State<ScreenSaver> {
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10))),
                             onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => SignupScreen()));
                             },
                             child: Text(
                               "Register",

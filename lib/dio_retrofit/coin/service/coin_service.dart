@@ -8,8 +8,8 @@ part 'coin_service.g.dart';
     baseUrl:
         'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false')
 abstract class CoinService {
-  factory CoinService(Dio dio) = _CoinService;
+  factory CoinService(Dio dio,{String baseUrl}) = _CoinService;
 
-  @GET('coins')
+  @GET('/coins')
   Future<List<CoinModel>> getCoins();
 }

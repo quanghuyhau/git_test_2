@@ -1,4 +1,6 @@
-import 'package:learn_flutter/dio_retrofit/weather/models/weather_model.dart';
+
+
+import 'package:learn_flutter/dio_retrofit/atomi/weather/models/weather_model.dart';
 
 abstract class WeatherState {}
 

@@ -1,10 +1,10 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:learn_flutter/dio_retrofit/weather/models/weather_model.dart';
-import 'package:learn_flutter/dio_retrofit/weather/service/weather_service.dart';
-import 'package:learn_flutter/dio_retrofit/weather/cubit/weather_cubit.dart';
-import 'package:learn_flutter/dio_retrofit/weather/cubit/weather_state.dart';
-import 'package:dio/dio.dart';
+import 'package:learn_flutter/dio_retrofit/atomi/weather/cubit/weather_cubit.dart';
+import 'package:learn_flutter/dio_retrofit/atomi/weather/cubit/weather_state.dart';
+import 'package:learn_flutter/dio_retrofit/atomi/weather/models/weather_model.dart';
+import 'package:learn_flutter/dio_retrofit/atomi/weather/service/weather_service.dart';
 
 class WeatherScreen extends StatelessWidget {
   const WeatherScreen({super.key});
@@ -34,7 +34,8 @@ class WeatherScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildWeatherPageView(BuildContext context, List<WeatherModel> weathers) {
+  Widget _buildWeatherPageView(
+      BuildContext context, List<WeatherModel> weathers) {
     final PageController pageController = PageController();
 
     return Stack(
@@ -65,7 +66,7 @@ class WeatherScreen extends StatelessWidget {
         ),
         Positioned(
           right: -10,
-          top: MediaQuery.of(context).size.height / 2 +25 ,
+          top: MediaQuery.of(context).size.height / 2 + 25,
           child: IconButton(
             icon: const Icon(Icons.arrow_forward, size: 40),
             onPressed: () {
@@ -237,4 +238,5 @@ class WeatherScreen extends StatelessWidget {
       ],
     );
   }
+
 }

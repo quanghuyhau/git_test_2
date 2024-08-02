@@ -1,10 +1,12 @@
 import 'dart:convert';
 import 'package:bloc/bloc.dart';
-import 'package:learn_flutter/dio_retrofit/weather/models/weather_model.dart';
-import 'package:learn_flutter/dio_retrofit/weather/service/weather_service.dart';
+import 'package:injectable/injectable.dart';
+import 'package:learn_flutter/dio_retrofit/atomi/weather/cubit/weather_state.dart';
+import 'package:learn_flutter/dio_retrofit/atomi/weather/models/weather_model.dart';
+import 'package:learn_flutter/dio_retrofit/atomi/weather/service/weather_service.dart';
 import 'package:logger/logger.dart';
-import 'weather_state.dart';
 
+@injectable
 class WeatherCubit extends Cubit<WeatherState> {
   final WeatherService _weatherService;
   final Logger _logger = Logger();
