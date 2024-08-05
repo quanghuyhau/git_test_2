@@ -1,11 +1,9 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:learn_flutter/dio_retrofit/atomi/authentication/forgotpassword/ui/forgort_password_screen.dart';
 import 'package:learn_flutter/dio_retrofit/atomi/authentication/login/cubit/login_cubit.dart';
 import 'package:learn_flutter/dio_retrofit/atomi/home/ui/home_screen.dart';
-import 'package:logger/web.dart';
 import '../../signup/ui/signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -23,40 +21,37 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => LoginCubit(),
-      child: Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          leading: TextButton(
-            style: TextButton.styleFrom(
-              backgroundColor: Color(0xFFF1F4FF),
-            ),
-            onPressed: () {
-              Navigator.pop(context, 'Huyyyyyyyyyyyyyyyyyy');
-            },
-            child: Icon(Icons.arrow_back),
+    return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        leading: TextButton(
+          style: TextButton.styleFrom(
+            backgroundColor: Color(0xFFF1F4FF),
           ),
+          onPressed: () {
+            Navigator.pop(context, 'Huyyyyyyyyyyyyyyyyyy');
+          },
+          child: Icon(Icons.arrow_back),
         ),
-        body: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(image: AssetImage("images/background.png")),
-          ),
-          child: SingleChildScrollView(
-            child: Form(
-              key: _formkey,
-              child: Column(
-                children: [
-                  _loginHere(),
-                  _emailLogin(),
-                  _passwordLogin(),
-                  _forgotPassLogin(),
-                  _buttonLogin(),
-                  _createAccount(context),
-                  _orContinueWith(),
-                  _otherMethod(),
-                ],
-              ),
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(image: AssetImage("images/background.png")),
+        ),
+        child: SingleChildScrollView(
+          child: Form(
+            key: _formkey,
+            child: Column(
+              children: [
+                _loginHere(),
+                _emailLogin(),
+                _passwordLogin(),
+                _forgotPassLogin(),
+                _buttonLogin(),
+                _createAccount(context),
+                _orContinueWith(),
+                _otherMethod(),
+              ],
             ),
           ),
         ),
@@ -153,7 +148,8 @@ class _LoginScreenState extends State<LoginScreen> {
       padding: const EdgeInsets.only(bottom: 30),
       child: InkWell(
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPassScreen()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => ForgotPassScreen()));
         },
         child: Padding(
           padding: EdgeInsets.only(left: 200),
@@ -305,4 +301,3 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-

@@ -21,57 +21,54 @@ class _SignupScreenState extends State<SignupScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => SignUpCubit(),
-      child: Scaffold(
-        appBar: _appBar(),
-        body: BlocListener<SignUpCubit, SignUpState>(
-          listener: (context, state) {
-            if (state is SignUpLoading) {
-              // Show loading indicator
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text('Đang đăng ký...'),
-                ),
-              );
-            } else if (state is SignUpSuccess) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  backgroundColor: Colors.green,
-                  content: Text('Đăng ký thành công'),
-                ),
-              );
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => LoginScreen()),
-              );
-            } else if (state is SignUpFailure) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  backgroundColor: Colors.red,
-                  content: Text(state.message),
-                ),
-              );
-            }
-          },
-          child: Container(
-            decoration: BoxDecoration(
-              image:
-              DecorationImage(image: AssetImage("images/background.png")),
-            ),
-            child: SingleChildScrollView(
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    _createAccount(),
-                    _emailSignUp(),
-                    _passwordSignUp(),
-                    _confirmPassSignUp(),
-                    _buttonSignUp(),
-                    _alreadyHaveAnAccount(),
-                  ],
-                ),
+    return Scaffold(
+      appBar: _appBar(),
+      body: BlocListener<SignUpCubit, SignUpState>(
+        listener: (context, state) {
+          if (state is SignUpLoading) {
+            // Show loading indicator
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text('Đang đăng ký...'),
+              ),
+            );
+          } else if (state is SignUpSuccess) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                backgroundColor: Colors.green,
+                content: Text('Đăng ký thành công'),
+              ),
+            );
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => LoginScreen()),
+            );
+          } else if (state is SignUpFailure) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                backgroundColor: Colors.red,
+                content: Text(state.message),
+              ),
+            );
+          }
+        },
+        child: Container(
+          decoration: BoxDecoration(
+            image:
+            DecorationImage(image: AssetImage("images/background.png")),
+          ),
+          child: SingleChildScrollView(
+            child: Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  _createAccount(),
+                  _emailSignUp(),
+                  _passwordSignUp(),
+                  _confirmPassSignUp(),
+                  _buttonSignUp(),
+                  _alreadyHaveAnAccount(),
+                ],
               ),
             ),
           ),

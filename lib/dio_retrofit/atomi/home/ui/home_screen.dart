@@ -4,7 +4,6 @@ import 'package:learn_flutter/dio_retrofit/atomi/authentication/login/ui/login_s
 import 'package:learn_flutter/dio_retrofit/atomi/home/home_page/ui/home_page_screen.dart';
 import 'package:learn_flutter/dio_retrofit/atomi/home/setting/ui/setting_screen.dart';
 import 'package:learn_flutter/dio_retrofit/atomi/weather/ui/weather_screen.dart';
-import 'package:learn_flutter/dio_retrofit/coin/screen/coin_screen.dart';
 import 'package:logger/logger.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,13 +15,27 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
+  String? _userEmail;
 
-  static  List<Widget> _widgetOptions = <Widget>[
+  static const List<Widget> _widgetOptions = <Widget>[
     HomePageScreen(),
     WeatherScreen(),
-    CoinListScreen(),
     SettingScreen(),
+
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    _getCurrentUserEmail();
+  }
+
+  void _getCurrentUserEmail() {
+    User? user = FirebaseAuth.instance.currentUser;
+    setState(() {
+      _userEmail = user?.email;
+    });
+  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -49,10 +62,6 @@ class _HomeScreenState extends State<HomeScreen> {
             label: 'Thời tiết',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.currency_bitcoin),
-            label: 'Coin',
-          ),
-          BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: 'Cài đặt',
           ),
@@ -64,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  _buildDrawer(BuildContext context)  {
+  Widget _buildDrawer(BuildContext context) {
     final Logger _logger = Logger();
     return Drawer(
       child: ListView(
@@ -76,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const <Widget>[
+              children: <Widget>[
                 CircleAvatar(
                   radius: 40,
                   backgroundColor: Colors.white,
@@ -84,10 +93,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 SizedBox(height: 16),
                 Text(
-                  '',
+                  _userEmail ?? "",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 24,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -115,21 +124,11 @@ class _HomeScreenState extends State<HomeScreen> {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.currency_bitcoin),
-            title: const Text('Coin'),
-            onTap: () {
-              setState(() {
-                _selectedIndex = 2;
-              });
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
             leading: const Icon(Icons.settings),
             title: const Text('Cài đặt'),
             onTap: () {
               setState(() {
-                _selectedIndex = 3;
+                _selectedIndex = 2;
               });
               Navigator.pop(context);
             },

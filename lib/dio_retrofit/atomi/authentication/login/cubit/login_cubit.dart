@@ -6,15 +6,17 @@ import 'package:meta/meta.dart';
 
 part 'login_state.dart';
 
+@injectable
 class LoginCubit extends Cubit<LoginState> {
-  final Logger _logger = Logger();
+  final FirebaseAuth _firebaseAuth;
+  final Logger _logger;
 
-  LoginCubit() : super(LoginInitial());
+  LoginCubit(this._firebaseAuth, this._logger) : super(LoginInitial());
 
   void login(String email, String password) async {
     emit(LoginLoading());
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
+      await _firebaseAuth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
